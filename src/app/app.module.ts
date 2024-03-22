@@ -1,14 +1,18 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import {CUSTOM_ELEMENTS_SCHEMA, NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
+import {AppComponent} from './app.component';
+import {SharedBledModule} from "./shared-bled/shared-bled.module";
 
 @NgModule({
   declarations: [
     AppComponent
   ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
+  ],
   imports: [
-    BrowserModule
+
+    SharedBledModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,26 @@
+<!-- log.component.html -->
+<div class="log-container">
+  <div *ngIf="logs.length > 0" class="table-container">
+    <table class="log-table">
+      <thead>
+      <tr>
+        <th>Timestamp</th>
+        <th>Severity</th>
+        <th>Logger</th>
+        <th>Message</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let log of logs" class="log-row">
+        <td>{{ log.timestamp }}</td>
+        <td>{{ log.severity }}</td>
+        <td>{{ log.logger }}</td>
+        <td>{{ log.message }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div *ngIf="logs.length === 0" class="no-logs">
+    <p>No logs available</p>
+  </div>
+</div>
