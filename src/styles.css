@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;/* You can add global styles to this file, and also import other style files */
+:root {
+  --bg-color: #D9DAD9;
+  --title-color: #68A4A5;
+  --row-color: #4C8055;
+  --title-larg-color: #EDCD44;
+  --apply-btn-bg-color: #EDCD44; /* Apply button background color */
+  --apply-btn-hover-color: #DC3E26; /* Apply button hover color */
+}
+
+.table-bg {
+  background-color: var(--bg-color) !important;
+}
+
+.title-color {
+  color: var(--title-color) !important;
+}
+.title-larg-color {
+  color: var(--title-larg-color) !important;
+}
+
+
+.row-color {
+  color: var(--row-color) !important;
+}

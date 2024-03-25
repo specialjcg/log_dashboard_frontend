@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "logdasboardfrontend:build:production"
+              "buildTarget": "logdasboardfrontend:build:production"
             },
             "development": {
-              "browserTarget": "logdasboardfrontend:build:development"
+              "buildTarget": "logdasboardfrontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "logdasboardfrontend:build"
+            "buildTarget": "logdasboardfrontend:build"
           }
         },
         "test": {

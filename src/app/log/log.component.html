@@ -1,26 +1,47 @@
-<!-- log.component.html -->
-<div class="log-container">
-  <div *ngIf="logs.length > 0" class="table-container">
-    <table class="log-table">
-      <thead>
+<div class="max-w-screen-xl mx-auto py-8 px-4 table-bg">
+<div class="flex flex-wrap items-center gap-4">
+    <label for="startDate" class="text-gray-800">Start Date:</label>
+    <input type="date" id="startDate" [(ngModel)]="startDate" class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-500">
+
+    <label for="startTime" class="text-gray-800">Start Time:</label>
+    <input type="time" id="startTime" [(ngModel)]="startTime" class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-500">
+
+    <label for="endDate" class="text-gray-800">End Date:</label>
+    <input type="date" id="endDate" [(ngModel)]="endDate" class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-500">
+
+    <label for="endTime" class="text-gray-800">End Time:</label>
+    <input type="time" id="endTime" [(ngModel)]="endTime" class="border rounded-md px-2 py-1 focus:outline-none focus:border-blue-500">
+
+  <button (click)="applyFilters()" class="bg-apply-btn-bg-color hover:bg-apply-btn-hover-color text-white font-semibold py-2 px-4 rounded-md focus:outline-none focus:ring focus:ring-blue-200">Apply</button>
+  </div>
+
+  <div class="mt-4 text-gray-800 title-color">Total Number of Log Lines: {{ totalLogs }}</div>
+
+  <div *ngIf="logs.length > 0" class="w-full overflow-hidden">
+    <table class="table-auto bg-white shadow-md rounded-lg overflow-hidden">
+      <thead style="background-color: var(--title-larg-color);">
       <tr>
-        <th>Timestamp</th>
-        <th>Severity</th>
-        <th>Logger</th>
-        <th>Message</th>
+        <th class="px-6 py-3 text-sm font-medium text-gray-700 uppercase tracking-wider">Timestamp</th>
+        <th class="px-6 py-3 text-sm font-medium text-gray-700 uppercase tracking-wider">Severity</th>
+        <th class="px-6 py-3 text-sm font-medium text-gray-700 uppercase tracking-wider">Logger</th>
+        <th class="px-6 py-3 text-sm font-medium text-gray-700 uppercase tracking-wider">Message</th>
       </tr>
       </thead>
-      <tbody>
-      <tr *ngFor="let log of logs" class="log-row">
-        <td>{{ log.timestamp }}</td>
-        <td>{{ log.severity }}</td>
-        <td>{{ log.logger }}</td>
-        <td>{{ log.message }}</td>
-      </tr>
+      <tbody class="divide-y divide-gray-200">
+      <ng-container *ngIf="filteredLogs.length > 0; else noLogsTemplate">
+        <tr *ngFor="let log of filteredLogs" class="hover:bg-gray-100">
+          <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.timestamp | date: 'dd/MM/yyyy HH:mm:ss' : 'Europe/Paris'}}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.severity }}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.logger }}</td>
+          <td class="px-0 py-4 whitespace-normal text-sm">{{ log.message }}</td>
+        </tr>
+      </ng-container>
       </tbody>
     </table>
   </div>
-  <div *ngIf="logs.length === 0" class="no-logs">
-    <p>No logs available</p>
-  </div>
+  <ng-template #noLogsTemplate>
+    <div class="no-logs mt-4 text-center">
+      <p>No logs available</p>
+    </div>
+  </ng-template>
 </div>

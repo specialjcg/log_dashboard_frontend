@@ -3,19 +3,22 @@ import {HttpClientModule} from '@angular/common/http';
 import {LogComponent} from "../log/log.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {GetLogService} from "../../service/get-log.service";
+import {FormsModule} from "@angular/forms";
+import {DatePipe} from "@angular/common";
 
 @NgModule({
   declarations: [LogComponent
   ],
-    imports: [
-      BrowserModule,
-      HttpClientModule
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
 
 
-    ], exports: [
+  ], exports: [
     LogComponent
   ],
-  providers: [GetLogService]
+  providers: [GetLogService,DatePipe]
 })
 export class SharedBledModule {
 }
