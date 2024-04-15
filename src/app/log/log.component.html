@@ -30,7 +30,7 @@
       <tbody class="divide-y divide-gray-200">
       <ng-container *ngIf="filteredLogs.length > 0; else noLogsTemplate">
         <tr *ngFor="let log of filteredLogs" class="hover:bg-gray-100">
-          <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.timestamp | date: 'dd/MM/yyyy HH:mm:ss' : 'Europe/Paris'}}</td>
+          <td class="px-6 py-4 whitespace-nowrap text-sm">{{ changeTime(log.timestamp) | date: 'dd/MM/yyyy HH:mm:ss' : 'Europe/Paris'}}</td>
           <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.severity }}</td>
           <td class="px-6 py-4 whitespace-nowrap text-sm">{{ log.logger }}</td>
           <td class="px-0 py-4 whitespace-normal text-sm">{{ log.message }}</td>

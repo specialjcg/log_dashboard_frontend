@@ -6,7 +6,7 @@ import {catchError, Observable, throwError} from "rxjs";
   providedIn: 'root'
 })
 export class GetLogService {
-  private apiUrl = 'http://localhost:3000/api/logs'; // Adjust the URL according to your API endpoint
+  private apiUrl = 'http://localhost:3000/logs'; // Adjust the URL according to your API endpoint
 
   constructor(private http: HttpClient) { }
 
